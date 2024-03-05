@@ -1,5 +1,5 @@
-# Battleboats! 🚢
-## Battleboat program developed in python3 for SE320 @ Chapman University.
+# Battleships! 🚢
+## Battleship program developed in python3 for SE320 @ Chapman University.
 ### Your typical game of battle boats/battleships that is playable through a terminal. 
 #### Setup & Rules: 
     1. 10x10 grid will have 8 ships of variable length randomly placed about
