@@ -18,3 +18,7 @@
 
 #### How to run:    
 To run the program locate the program in your directory on your device and use the command "python3 battleship.py" (may differ depending on the version of python that you have installed)
+
+
+#### List of Issues/Features to address:
+1. 
