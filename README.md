@@ -10,7 +10,7 @@
         the ship is in one of 4 directions, left, right, up, and down
     6. If all ships are unearthed before using up all bullets, you win else, you lose
 
-    Key:
+#### Key:
     1. "." = water
     2. "O" = part of ship
     3. "X" = part of ship that was hit
