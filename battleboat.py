@@ -115,7 +115,7 @@ def print_grid():
     global grid
     global alphabet
 
-    debug_mode = True
+    debug_mode = False #change to true to see the location of the boats
 
     alphabet = alphabet[0: len(grid) + 1]
 
