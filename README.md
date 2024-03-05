@@ -15,3 +15,6 @@
     2. "O" = part of ship
     3. "X" = part of ship that was hit
     4. "#" = water that was shot with bullet, a miss because it hit no ship
+
+#### How to run:    
+To run the program locate the program in your directory on your device and use the command "python3 battleship.py" (may differ depending on the version of python that you have installed)
