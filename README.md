@@ -22,5 +22,6 @@ To run the program locate the program in your directory on your device and use t
 
 #### List of Issues/Features to address:
 1. Currently, the size of the grid and the number of boats are set statically. Increase the scalability of the game by allowing users to choose the grid size and the number of ships dynamically in order to make the game more customizable and enjoyable for players
-2. Currently, once a play wins the terminal prints a singular line stating "Congrats you won!" Implement a "Game Over Screen" that displays the outcome of the game (win or lose) along with relevant statistics such as the number of ships sunk and accuracy percentage.
-3. Introduce an opponent mode by implementing an algorithm that randomly guesses for its shots, to provide a challenge for players. Another grid would need to be implemented for the opponent. 
+2. If users don't want to select the grid size or number of ships, implement a few difficulty levels (easy, medium, hard) that adjust factors like the number of ships and bullets, providing players with varying levels of challenge.
+3. Currently, once a play wins the terminal prints a singular line stating "Congrats you won!" Implement a "Game Over Screen" that displays the outcome of the game (win or lose) along with relevant statistics such as the number of ships sunk and accuracy percentage.
+4. Introduce an opponent mode by implementing an algorithm that randomly guesses for its shots, to provide a challenge for players. Another grid would need to be implemented for the opponent. 
