@@ -21,4 +21,4 @@ To run the program locate the program in your directory on your device and use t
 
 
 #### List of Issues/Features to address:
-1. 
+1. Currently, the size of the grid and the number of boats are set statically. Increase the scalability of the game by allowing users to choose the grid size and the number of ships dynamically in order to make the game more customizable and enjoyable for a players
