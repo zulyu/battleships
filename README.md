@@ -1,4 +1,4 @@
-# Battleboats!
+# Battleboats! 🚢
 ## Battleboat program developed in python3 for SE320 @ Chapman University.
 ### Your typical game of battle boats/battleships that is playable through a terminal. 
 #### Setup & Rules: 
