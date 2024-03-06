@@ -20,8 +20,8 @@ import time
 
 # * * * GLOBAL VARIABLES * * * 
 Grid = [[]]
-Grid_size = 10 # grid size
-Num_of_ships = 2 # number of ships to place
+GRID_SIZE = 10 # grid size
+NUM_OF_SHIPS = 2 # number of ships to place
 Bullets_left = 50 # number of bullets left
 Game_over = False # game status
 Num_of_ships_sunk = 0 # number of ships sunk
