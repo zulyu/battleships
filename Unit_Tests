@@ -1,5 +1,5 @@
-1. Test Grid Creation: Ensure that the grid is created correctly and has the expected dimensions.
-#### def test_create_grid():
+#### Test Grid Creation: Ensure that the grid is created correctly and has the expected dimensions.
+    def test_create_grid():
     create_grid()
     assert len(GRID) == GRID_SIZE
     assert all(len(row) == GRID_SIZE for row in GRID)
