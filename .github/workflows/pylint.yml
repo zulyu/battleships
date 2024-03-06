@@ -1,21 +1,30 @@
+name: Pylint
 
-name: Lint Code Base
-
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
 
 jobs:
-  build:
-    name: Lint Code Base
+  pylint:
+    name: Pylint Check
     runs-on: ubuntu-latest
-
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v2
         with:
-          fetch-depth: 0
+          python-version: 3.x
 
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_PYTHON_BLACK: true
+      - name: Install dependencies
+        run: pip install pylint
+
+      - name: Run Pylint
+        run: pylint your_script.py
