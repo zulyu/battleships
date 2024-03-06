@@ -19,8 +19,3 @@ jobs:
         uses: github/super-linter@v4
         env:
           VALIDATE_PYTHON_BLACK: true
-      # - name: Lint Code Base
-      #   uses: github/super-linter@v4
-      #   with:
-      #     VALIDATE_ALL_CODEBASE: true
-      #     GITHUB_TOKEN: ${{ secrets.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}}
