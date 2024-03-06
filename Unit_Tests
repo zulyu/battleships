@@ -1,9 +1,0 @@
-#### Test Grid Creation: Ensure that the grid is created correctly and has the expected dimensions.
-    def test_create_grid():
-    create_grid()
-    assert len(GRID) == GRID_SIZE
-    assert all(len(row) == GRID_SIZE for row in GRID)
-2. Test Ship Placement: Verify that the ships are placed correctly on the grid.
-3. Test Bullet Shooting: Check if shooting bullets updates the grid correctly.
-4. Test Ship Sinking: Ensure that the game recognizes when a ship is sunk.
-5. Test Game Over Condition: Verify that the game correctly ends when all ships are sunk or bullets are depleted.
