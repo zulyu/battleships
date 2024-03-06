@@ -19,14 +19,14 @@ import random
 import time
 
 # * * * GLOBAL VARIABLES * * * 
-grid = [[]]
+Grid = [[]]
 Grid_size = 10 # grid size
-num_of_ships = 2 # number of ships to place
-bullets_left = 50 # number of bullets left
-game_over = False # game status
-num_of_ships_sunk = 0 # number of ships sunk
-ship_positions = [[]] # ship positions
-alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" # alphabet letters
+Num_of_ships = 2 # number of ships to place
+Bullets_left = 50 # number of bullets left
+Game_over = False # game status
+Num_of_ships_sunk = 0 # number of ships sunk
+Ship_positions = [[]] # ship positions
+Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" # alphabet letters
 
 
 def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
