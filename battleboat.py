@@ -18,20 +18,20 @@
 import random
 import time
 
-# * * * GLOBAL VARIABLES * * * 
-Grid = [[]]
+# * * * GLOBAL VARIABLES * * *
+GRID = [[]]
 GRID_SIZE = 10 # grid size
 NUM_OF_SHIPS = 2 # number of ships to place
-Bullets_left = 50 # number of bullets left
-Game_over = False # game status
-Num_of_ships_sunk = 0 # number of ships sunk
-Ship_positions = [[]] # ship positions
-Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" # alphabet letters
+BULLETS_LEFT = 50 # number of bullets left
+GAME_OVER = False # game status
+NUM_OF_SHIPS_SUNK = 0 # number of ships sunk
+SHIP_POSITIONS = [[]] # ship positions
+ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" # alphabet letters
 
 
 def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
 # will check the row/column to see if a ship can be placed
-# * * * 
+# * * *
     global grid
     global ship_positions
 
@@ -48,8 +48,8 @@ def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
                 grid[r][c] = "O"
     return all_valid
 
-def try_to_place_ship_on_grid(row, col, direction, length): 
-#  based on direction will call helper method to try and place a ship on the grid 
+def try_to_place_ship_on_grid(row, col, direction, length):
+#  based on direction will call helper method to try and place a ship on the grid
 # * * *
     global grid_size
 
@@ -79,7 +79,7 @@ def try_to_place_ship_on_grid(row, col, direction, length):
 
 def create_grid():
 # will create a 10x10 grid & randomly place down ships of different sizes in different directions
-# * * * 
+# * * *
     global grid
     global grid_size
     global num_of_ships
@@ -138,8 +138,8 @@ def print_grid():
 
 
 def accept_valid_bullet_placement():
-# will get valid row & column to place bullet location 
-# * * * 
+# will get valid row & column to place bullet location
+# * * *
     global alphabet
     global grid
 
@@ -158,11 +158,11 @@ def accept_valid_bullet_placement():
             print("Error: Please enter letter (A-J) for row and (0-9) for column")
             continue
         row = alphabet.find(row)
-        if not (-1 < row < grid_size):
+        if not -1 < row < grid_size:
             print("Error: Please enter letter (A-J) for row and (0-9) for column")
             continue
         col = int(col)
-        if not (-1 < col < grid_size):
+        if not -1 < col < grid_size:
             print("Error: Please enter letter (A-J) for row and (0-9) for column")
             continue
         if grid[row][col] == "#" or grid[row][col] == "X":
