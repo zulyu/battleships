@@ -28,7 +28,6 @@ NUM_OF_SHIPS_SUNK = 0 # number of ships sunk
 SHIP_POSITIONS = [[]] # ship positions
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" # alphabet letters
 
-
 def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
 # will check the row/column to see if a ship can be placed
 # * * *
@@ -194,7 +193,7 @@ def check_for_ship_sunk(row, col):
 
 
 def shoot_bullet():
-# update grid and ships based on where the bullet landed 
+# update grid and ships based on where the bullet landed
 # * * *
     global grid
     global NUM_OF_SHIPS_SUNK
