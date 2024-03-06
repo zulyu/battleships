@@ -20,10 +20,10 @@ import time
 
 # * * * GLOBAL VARIABLES * * * 
 grid = [[]]
-grid_size = 10 # grid size
+Grid_size = 10 # grid size
 num_of_ships = 2 # number of ships to place
-bullets_left = 50 # number of bullets left 
-game_over = False # game status 
+bullets_left = 50 # number of bullets left
+game_over = False # game status
 num_of_ships_sunk = 0 # number of ships sunk
 ship_positions = [[]] # ship positions
 alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" # alphabet letters
