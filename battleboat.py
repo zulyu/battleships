@@ -180,4 +180,4 @@ def main():
         print("Number of bullets left:", bullets_left)
         bullets_left = shoot_bullet(grid, ship_pos, bullets_left)
 
-        game_over = check_for_game_over(ship_pos, num_of_ships_sunk, num_of_ships, bullets_left
+        game_over = check_for_game_over(ship_pos, num_of_ships_sunk, num_of_ships, bullets_left)
