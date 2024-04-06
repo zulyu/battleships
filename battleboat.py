@@ -115,7 +115,7 @@ def check_for_ship_sunk(row, col, grid):
     """
     for r, row_data in enumerate(grid):
         for c, col_data in enumerate(row_data):
-            if col_data == "O" and (r != row or c != col) and grid[r][c] != "X":
+            if col_data == "O" and (r != row or c != col) and col_data != "X":
                 return False
     return True
 
