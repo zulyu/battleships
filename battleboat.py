@@ -146,14 +146,14 @@ def shoot_bullet(grid, ship_pos, bullets_left):
 
     return bullets_left
 
-def check_for_game_over(ship_pos, num_of_ships_sunk, num_of_ships, bullets_left):
+def check_for_game_over(num_of_ships_sunk, num_of_ships, bullets_left):
     """
     Check if the game is over.
     """
     if num_of_ships == num_of_ships_sunk:
         print("Congrats you won!")
         return True
-    elif bullets_left <= 0:
+    if bullets_left <= 0:
         print("Sorry, you lost! You ran out of bullets, try again next time!")
         return True
     return False
