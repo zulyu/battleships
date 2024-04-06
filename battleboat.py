@@ -1,3 +1,7 @@
+"""
+This module implements the game logic for Battleboats.
+"""
+
 import random
 import time
 
