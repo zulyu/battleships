@@ -115,11 +115,8 @@ def check_for_ship_sunk(row, col, grid):
     """
     for r, row_data in enumerate(grid):
         for c, col_data in enumerate(row_data):
-            if col_data == "O":
-                if (r == row and c == col) or grid[r][c] == "X":
-                    continue
-                else:
-                    return False
+            if col_data == "O" and (r != row or c != col) and grid[r][c] != "X":
+                return False
     return True
 
 def shoot_bullet(grid, bullets_left):
