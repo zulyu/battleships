@@ -1,3 +1,7 @@
+"""
+Battleship game implementation.
+"""
+
 import random
 import time
 
@@ -146,7 +150,7 @@ def shoot_bullet(grid, ship_pos, bullets_left):
 
     return bullets_left
 
-def check_for_game_over(num_of_ships_sunk, num_of_ships, bullets_left):
+def check_for_game_over(ship_pos, num_of_ships_sunk, num_of_ships, bullets_left):
     """
     Check if the game is over.
     """
@@ -176,8 +180,4 @@ def main():
         print("Number of bullets left:", bullets_left)
         bullets_left = shoot_bullet(grid, ship_pos, bullets_left)
 
-        game_over = check_for_game_over(ship_pos, num_of_ships_sunk, num_of_ships, bullets_left)
-
-if __name__ == '__main__':
-    main()
-
+        game_over = check_for_game_over(ship_pos, num_of_ships_sunk, num_of_ships, bullets_left
