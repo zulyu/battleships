@@ -45,7 +45,7 @@ def place_ship(grid, ship_info):
         if row + length >= grid_size:
             return False
         end_row = row + length
-    
+
     return validate_grid_place_ship(grid, start_row, end_row, start_col, end_col)
 
 def create_grid(grid_size, num_of_ships):
