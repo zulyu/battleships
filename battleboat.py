@@ -1,7 +1,7 @@
 import random
 import time
 
-def validate_grid_and_place_ship(grid, ship_positions, start_row, end_row, start_col, end_col):
+def validate_grid_place_ship(grid, ship_positions, start_row, end_row, start_col, end_col):
     """
     Validate the grid and place a ship if valid.
     """
@@ -39,7 +39,7 @@ def try_to_place_ship_on_grid(grid, grid_size, ship_positions, row, col, directi
         if row + length >= grid_size:
             return False
         end_row = row + length
-    return validate_grid_and_place_ship(grid, ship_positions, start_row, end_row, start_col, end_col)
+    return validate_grid_place_ship(grid, ship_positions, start_row, end_row, start_col, end_col)
 
 def create_grid(grid_size, num_of_ships):
     """
