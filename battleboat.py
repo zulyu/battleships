@@ -1,7 +1,7 @@
 import random
 import time
 
-def validate_grid_place_ship(grid, ship_positions, start_row, end_row, start_col, end_col):
+def validate_grid_place_ship(grid, ship_pos, start_row, end_row, start_col, end_col):
     """
     Validate the grid and place a ship if valid.
     """
@@ -12,13 +12,13 @@ def validate_grid_place_ship(grid, ship_positions, start_row, end_row, start_col
                 all_valid = False
                 break
     if all_valid:
-        ship_positions.append([start_row, end_row, start_col, end_col])
+        ship_pos.append([start_row, end_row, start_col, end_col])
         for r in range(start_row, end_row):
             for c in range(start_col, end_col):
                 grid[r][c] = "O"
     return all_valid
 
-def place_ship(grid, grid_size, ship_positions, row, col, direction, length):
+def place_ship(grid, grid_size, ship_pos, row, col, direction, length):
     """
     Try to place a ship on the grid.
     """
@@ -39,7 +39,7 @@ def place_ship(grid, grid_size, ship_positions, row, col, direction, length):
         if row + length >= grid_size:
             return False
         end_row = row + length
-    return validate_grid_place_ship(grid, ship_positions, start_row, end_row, start_col, end_col)
+    return validate_grid_place_ship(grid, ship_pos, start_row, end_row, start_col, end_col)
 
 def create_grid(grid_size, num_of_ships):
     """
@@ -48,17 +48,17 @@ def create_grid(grid_size, num_of_ships):
     random.seed(time.time())
 
     grid = [["." for _ in range(grid_size)] for _ in range(grid_size)]
-    ship_positions = []
+    ship_pos = []
 
-    while len(ship_positions) != num_of_ships:
+    while len(ship_pos) != num_of_ships:
         random_row = random.randint(0, grid_size - 1)
         random_col = random.randint(0, grid_size - 1)
         direction = random.choice(["left", "right", "up", "down"])
         ship_size = random.randint(3, 5)
-        if place_ship(grid, grid_size, ship_positions, random_row, random_col, direction, ship_size):
+        if place_ship(grid, grid_size, ship_pos, random_row, random_col, direction, ship_size):
             pass
 
-    return grid, ship_positions
+    return grid, ship_pos
 
 def print_grid(grid):
     """
@@ -111,11 +111,11 @@ def accept_valid_bullet_placement(grid, alphabet):
             is_valid_placement = True
     return row, col
 
-def check_for_ship_sunk(row, col, ship_positions, grid):
+def check_for_ship_sunk(row, col, ship_pos, grid):
     """
     Check if a ship is sunk.
     """
-    for position in ship_positions:
+    for position in ship_pos:
         start_row, end_row, start_col, end_col = position
         if start_row <= row <= end_row and start_col <= col <= end_col:
             for r in range(start_row, end_row):
@@ -124,7 +124,7 @@ def check_for_ship_sunk(row, col, ship_positions, grid):
                         return False
     return True
 
-def shoot_bullet(grid, ship_positions, bullets_left):
+def shoot_bullet(grid, ship_pos, bullets_left):
     """
     Shoot a bullet at a specified location.
     """
@@ -138,7 +138,7 @@ def shoot_bullet(grid, ship_positions, bullets_left):
     elif grid[row][col] == "O":
         print("You hit!", end=" ")
         grid[row][col] = "X"
-        if check_for_ship_sunk(row, col, ship_positions, grid):
+        if check_for_ship_sunk(row, col, ship_pos, grid):
             print("A ship was completely sunk!")
         else:
             print("A ship was shot.")
@@ -146,7 +146,7 @@ def shoot_bullet(grid, ship_positions, bullets_left):
 
     return bullets_left
 
-def check_for_game_over(ship_positions, num_of_ships_sunk, num_of_ships, bullets_left):
+def check_for_game_over(ship_pos, num_of_ships_sunk, num_of_ships, bullets_left):
     """
     Check if the game is over.
     """
@@ -167,16 +167,16 @@ def main():
     bullets_left = 50
     num_of_ships_sunk = 0
 
-    grid, ship_positions = create_grid(grid_size, num_of_ships)
+    grid, ship_pos = create_grid(grid_size, num_of_ships)
 
     game_over = False
     while not game_over:
         print_grid(grid)
         print("Number of ships remaining:", num_of_ships - num_of_ships_sunk)
         print("Number of bullets left:", bullets_left)
-        bullets_left = shoot_bullet(grid, ship_positions, bullets_left)
+        bullets_left = shoot_bullet(grid, ship_pos, bullets_left)
 
-        game_over = check_for_game_over(ship_positions, num_of_ships_sunk, num_of_ships, bullets_left)
+        game_over = check_for_game_over(ship_pos, num_of_ships_sunk, num_of_ships, bullets_left)
 
 if __name__ == '__main__':
     main()
