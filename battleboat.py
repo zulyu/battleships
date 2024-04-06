@@ -21,6 +21,7 @@ def validate_grid_place_ship(grid, start_row, end_row, start_col, end_col):
                 grid[r][c] = "O"
     return all_valid
 
+
 def place_ship(grid, ship_info):
     """
     Try to place a ship on the grid.
@@ -61,7 +62,8 @@ def create_grid(grid_size, num_of_ships):
         random_col = random.randint(0, grid_size - 1)
         direction = random.choice(["left", "right", "up", "down"])
         ship_size = random.randint(3, 5)
-        if place_ship(grid, ship_info):
+        ship_info = (random_row, random_col, direction, ship_size)  # Define ship_info
+        if place_ship(grid, ship_info):  # Pass ship_info to place_ship
             num_of_ships -= 1
 
     return grid
