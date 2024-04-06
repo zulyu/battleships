@@ -61,7 +61,7 @@ def create_grid(grid_size, num_of_ships):
         random_col = random.randint(0, grid_size - 1)
         direction = random.choice(["left", "right", "up", "down"])
         ship_size = random.randint(3, 5)
-        if place_ship(grid, grid_size, random_row, random_col, direction, ship_size):
+        if place_ship(grid, ship_info):
             num_of_ships -= 1
 
     return grid
