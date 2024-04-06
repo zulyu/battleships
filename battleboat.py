@@ -1,3 +1,7 @@
+"""
+Battleship game implementation.
+"""
+
 import random
 import time
 
@@ -11,6 +15,9 @@ SHIP_POSITIONS = [[]]
 ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
+    """
+    Validate the grid and place a ship if valid.
+    """
     global GRID
 
     all_valid = True
@@ -27,6 +34,9 @@ def validate_grid_and_place_ship(start_row, end_row, start_col, end_col):
     return all_valid
 
 def try_to_place_ship_on_grid(row, col, direction, length):
+    """
+    Try to place a ship on the grid.
+    """
     global GRID_SIZE
 
     start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
@@ -49,6 +59,9 @@ def try_to_place_ship_on_grid(row, col, direction, length):
     return validate_grid_and_place_ship(start_row, end_row, start_col, end_col)
 
 def create_grid():
+    """
+    Create the grid and place ships randomly.
+    """
     global GRID, GRID_SIZE, NUM_OF_SHIPS
 
     random.seed(time.time())
@@ -56,9 +69,9 @@ def create_grid():
     rows, cols = (GRID_SIZE, GRID_SIZE)
 
     GRID = []
-    for r in range(rows):
+    for _ in range(rows):
         row = []
-        for c in range(cols):
+        for _ in range(cols):
             row.append(".")
         GRID.append(row)
 
@@ -75,6 +88,9 @@ def create_grid():
             num_of_ships_placed += 1
 
 def print_grid():
+    """
+    Print the grid.
+    """
     global GRID, ALPHABET
 
     debug_mode = False
@@ -99,6 +115,9 @@ def print_grid():
     print("")
 
 def accept_valid_bullet_placement():
+    """
+    Accept valid bullet placement.
+    """
     global ALPHABET, GRID
 
     is_valid_placement = False
