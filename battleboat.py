@@ -21,11 +21,14 @@ def validate_grid_place_ship(grid, start_row, end_row, start_col, end_col):
                 grid[r][c] = "O"
     return all_valid
 
-def place_ship(grid, grid_size, row, col, direction, length):
+def place_ship(grid, ship_info):
     """
     Try to place a ship on the grid.
     """
+    grid_size = len(grid)
+    row, col, direction, length = ship_info
     start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
+    
     if direction == "left":
         if col - length < 0:
             return False
@@ -42,6 +45,7 @@ def place_ship(grid, grid_size, row, col, direction, length):
         if row + length >= grid_size:
             return False
         end_row = row + length
+    
     return validate_grid_place_ship(grid, start_row, end_row, start_col, end_col)
 
 def create_grid(grid_size, num_of_ships):
