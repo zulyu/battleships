@@ -28,7 +28,7 @@ def place_ship(grid, ship_info):
     grid_size = len(grid)
     row, col, direction, length = ship_info
     start_row, end_row, start_col, end_col = row, row + 1, col, col + 1
-    
+
     if direction == "left":
         if col - length < 0:
             return False
