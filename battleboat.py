@@ -185,3 +185,6 @@ def main():
         bullets_left = shoot_bullet(grid, bullets_left)
 
         game_over = check_for_game_over(num_of_ships_sunk, num_of_ships, bullets_left)
+
+if __name__ == "__main__":
+    main()
