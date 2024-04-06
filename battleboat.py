@@ -66,6 +66,9 @@ def create_grid():
 
     random.seed(time.time())
 
+    GRID_SIZE = 10  # Set GRID_SIZE to the desired value
+    NUM_OF_SHIPS = 2  # Set NUM_OF_SHIPS to the desired value
+
     rows, cols = (GRID_SIZE, GRID_SIZE)
 
     GRID = []
