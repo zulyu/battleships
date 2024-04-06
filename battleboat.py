@@ -142,6 +142,9 @@ def accept_valid_bullet_placement():
     return row, col
 
 def check_for_ship_sunk(row, col):
+    """
+    Check if a ship is sunk.
+    """
     global SHIP_POSITIONS, GRID
 
     for position in SHIP_POSITIONS:
@@ -154,6 +157,9 @@ def check_for_ship_sunk(row, col):
     return True
 
 def shoot_bullet():
+    """
+    Shoot a bullet at a specified location.
+    """
     global GRID, NUM_OF_SHIPS_SUNK, BULLETS_LEFT
 
     row, col = accept_valid_bullet_placement()
@@ -174,6 +180,9 @@ def shoot_bullet():
     BULLETS_LEFT -= 1
 
 def check_for_game_over():
+    """
+    Check if the game is over.
+    """
     global NUM_OF_SHIPS_SUNK, NUM_OF_SHIPS, BULLETS_LEFT, GAME_OVER
 
     if NUM_OF_SHIPS == NUM_OF_SHIPS_SUNK:
