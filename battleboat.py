@@ -165,7 +165,7 @@ def main():
     bullets_left = 50
     num_of_ships_sunk = 0
 
-    grid, ship_pos = create_grid(grid_size, num_of_ships)
+    grid = create_grid(grid_size, num_of_ships)
 
     game_over = False
     while not game_over:
