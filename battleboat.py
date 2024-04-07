@@ -6,9 +6,9 @@ import random
 import time
 
 # Initialize global variables with default values
-game_over = False
-num_of_ships_sunk = 0
-bullets_left = 50
+GAME_OVER = False
+NUM_OF_SHIPS_SUNK = 0
+BULLETS_LEFT = 50
 
 def validate_grid_place_ship(grid, start_row, end_row, start_col, end_col):
     """
