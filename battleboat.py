@@ -195,4 +195,4 @@ def main():
     print("Game Over!")
     print("Number of ships sunk:", NUM_OF_SHIPS_SUNK)
     accuracy = (NUM_OF_SHIPS_SUNK / (50 - BULLETS_LEFT)) * 100
-    print("Accuracy percentage:",
+    print("Accuracy percentage:", accuracy, "%")
