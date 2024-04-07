@@ -172,7 +172,7 @@ def main():
     """
     Main function to start the game.
     """
-    global GAME_OVER, NUM_OF_SHIPS_SUNK, BULLETS_LEFT  # Declare global variables
+    global GAME_OVER, BULLETS_LEFT  # Declare global variables
 
     print("-----Welcome to Battleships-----")
     print("You have 50 bullets to take down 8 ships, may the battle begin!")
