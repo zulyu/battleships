@@ -190,7 +190,7 @@ if __name__ == "__main__":
     main()
 
 if game_over:
-        print("Game Over!")
-        print("Number of ships sunk:", num_of_ships_sunk)
-        accuracy = (num_of_ships_sunk / (50 - bullets_left)) * 100
-        print("Accuracy percentage:", accuracy, "%")
+    print("Game Over!")
+    print("Number of ships sunk:", num_of_ships_sunk)
+    accuracy = (num_of_ships_sunk / (50 - bullets_left)) * 100
+    print("Accuracy percentage:", accuracy, "%")
