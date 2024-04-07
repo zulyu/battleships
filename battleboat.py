@@ -5,11 +5,6 @@ This module implements the game logic for Battleboats.
 import random
 import time
 
-# Initialize global variables with default values
-GAME_OVER = False
-NUM_OF_SHIPS_SUNK = 0
-BULLETS_LEFT = 50
-
 def validate_grid_place_ship(grid, start_row, end_row, start_col, end_col):
     """
     Validate the grid and place a ship if valid.
@@ -172,6 +167,8 @@ def main():
     """
     Main function to start the game.
     """
+    global NUM_OF_SHIPS_SUNK, GAME_OVER  # Declare global variables
+    
     GAME_OVER = False
     BULLETS_LEFT = 50  # Initialize bullets left
     
