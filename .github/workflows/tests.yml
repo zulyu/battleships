@@ -1,0 +1,32 @@
+name: Unit Tests and Linting
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  tests:
+    name: Run Unit Tests and Linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: |
+          pip install pylint  # Install pylint
+          pip install pytest  # Install pytest for running unit tests
+
+      - name: Run Pylint
+        run: pylint battleboat.py
+
+      - name: Run Unit Tests
+        run: pytest
