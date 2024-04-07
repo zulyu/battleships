@@ -6,9 +6,9 @@ import random
 import time
 
 # Initialize global variables with default values
-game_over = False
-num_of_ships_sunk = 0
-bullets_left = 50
+GAME_OVER = False
+NUM_OF_SHIPS_SUNK = 0
+BULLETS_LEFT = 50
 
 def validate_grid_place_ship(grid, start_row, end_row, start_col, end_col):
     """
@@ -172,7 +172,7 @@ def main():
     """
     Main function to start the game.
     """
-    global game_over, num_of_ships_sunk, bullets_left  # Declare global variables
+    global GAME_OVER, NUM_OF_SHIPS_SUNK, BULLETS_LEFT  # Declare global variables
 
     print("-----Welcome to Battleships-----")
     print("You have 50 bullets to take down 8 ships, may the battle begin!")
@@ -182,21 +182,17 @@ def main():
 
     grid = create_grid(grid_size, num_of_ships)
 
-    game_over = False
-    while not game_over:
+    GAME_OVER = False
+    while not GAME_OVER:
         print_grid(grid)
-        print("Number of ships remaining:", num_of_ships - num_of_ships_sunk)
-        print("Number of bullets left:", bullets_left)
-        bullets_left = shoot_bullet(grid, bullets_left)
+        print("Number of ships remaining:", num_of_ships - NUM_OF_SHIPS_SUNK)
+        print("Number of bullets left:", BULLETS_LEFT)
+        BULLETS_LEFT = shoot_bullet(grid, BULLETS_LEFT)
 
-        game_over = check_for_game_over(num_of_ships_sunk, num_of_ships, bullets_left)
+        GAME_OVER = check_for_game_over(NUM_OF_SHIPS_SUNK, num_of_ships, BULLETS_LEFT)
 
     # Print game statistics
     print("Game Over!")
-    print("Number of ships sunk:", num_of_ships_sunk)
-    accuracy = (num_of_ships_sunk / (50 - bullets_left)) * 100
-    print("Accuracy percentage:", accuracy, "%")
-
-if __name__ == "__main__":
-    main()
-
+    print("Number of ships sunk:", NUM_OF_SHIPS_SUNK)
+    accuracy = (NUM_OF_SHIPS_SUNK / (50 - BULLETS_LEFT)) * 100
+    print("Accuracy percentage:",
