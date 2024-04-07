@@ -172,8 +172,9 @@ def main():
     """
     Main function to start the game.
     """
-    global GAME_OVER, BULLETS_LEFT  # Declare global variables
-
+    GAME_OVER = False
+    BULLETS_LEFT = 50  # Initialize bullets left
+    
     print("-----Welcome to Battleships-----")
     print("You have 50 bullets to take down 8 ships, may the battle begin!")
 
@@ -182,7 +183,6 @@ def main():
 
     grid = create_grid(grid_size, num_of_ships)
 
-    GAME_OVER = False
     while not GAME_OVER:
         print_grid(grid)
         print("Number of ships remaining:", num_of_ships - NUM_OF_SHIPS_SUNK)
