@@ -151,17 +151,17 @@ def shoot_bullet(grid, bullets_l):
 
     return bullets_l
 
-def check_for_game_over(num_of_ships_s, num_of_ships, bullets_l):
+def check_for_game_over(num_ships_s, num_of_ships, bullets_l):
     """
     Check if the game is over.
     """
-    game_result = None
-    if num_of_ships == num_of_ships_s:
-        game_result = "win"
+    result = None
+    if num_of_ships == num_ships_s:
+        result = "win"
     elif bullets_l <= 0:
-        game_result = "lose"
+        result = "lose"
 
-    return game_result, num_of_ships_s, bullets_l
+    return result, num_ships_s, bullets_l
 
 def main():
     """
@@ -173,26 +173,26 @@ def main():
     grid_size = 10
     num_of_ships = 2
     bullets_l = 50
-    num_of_ships_s = 0
+    num_ships_s = 0
 
     grid = create_grid(grid_size, num_of_ships)
 
     game_over = False
     while not game_over:
         print_grid(grid)
-        print("Number of ships remaining:", num_of_ships - num_of_ships_s)
+        print("Number of ships remaining:", num_of_ships - num_ships_s)
         print("Number of bullets left:", bullets_l)
         bullets_l = shoot_bullet(grid, bullets_l)
 
-        game_result, num_of_ships_s, bullets_l = check_for_game_over(num_of_ships_s, num_of_ships, bullets_l)
-        if game_result:
+        result, num_ships_s, bullets_l = check_for_game_over(num_ships_s, num_of_ships, bullets_l)
+        if result:
             print("Game Over!")
-            if game_result == "win":
+            if result == "win":
                 print("Congrats you won!")
             else:
                 print("Sorry, you lost! You ran out of bullets, try again next time!")
-            print("Number of ships sunk:", num_of_ships_s)
-            accuracy = ((num_of_ships_s / (num_of_ships - num_of_ships_s)) * 100) if num_of_ships > 0 else 0
+            print("Number of ships sunk:", num_ships_s)
+            accuracy = ((num_ships_s / (num_of_ships - num_ships_s)) * 100) if num_of_ships > 0 else 0
             print("Accuracy Percentage: {:.2f}%".format(accuracy))
             game_over = True
 
