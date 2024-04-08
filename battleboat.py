@@ -193,7 +193,7 @@ def main():
                 print("Sorry, you lost! You ran out of bullets, try again next time!")
             print("Number of ships sunk:", num_ships_s)
             accuracy = ((num_ships_s / (num_ships - num_ships_s)) * 100) if num_ships > 0 else 0
-            print(f"Accuracy Percentage: {accuracy_percentage:.2f}%")
+            print(f"Accuracy Percentage: {accuracy:.2f}%")
             game_over = True
 
 if __name__ == "__main__":
