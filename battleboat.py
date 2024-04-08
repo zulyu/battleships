@@ -155,13 +155,13 @@ def check_for_game_over(num_of_ships_sunk, num_of_ships, bullets_left):
     """
     Check if the game is over.
     """
+    game_result = None
     if num_of_ships == num_of_ships_sunk:
-        print("Congrats you won!")
-        return True
-    if bullets_left <= 0:
-        print("Sorry, you lost! You ran out of bullets, try again next time!")
-        return True
-    return False
+        game_result = "win"
+    elif bullets_left <= 0:
+        game_result = "lose"
+
+    return game_result, num_of_ships_sunk, bullets_left
 
 def main():
     """
@@ -184,8 +184,17 @@ def main():
         print("Number of bullets left:", bullets_left)
         bullets_left = shoot_bullet(grid, bullets_left)
 
-        game_over = check_for_game_over(num_of_ships_sunk, num_of_ships, bullets_left)
-
+        game_result, num_of_ships_sunk, bullets_left = check_for_game_over(num_of_ships_sunk, num_of_ships, bullets_left)
+        if game_result:
+            print("Game Over!")
+            if game_result == "win":
+                print("Congrats you won!")
+            else:
+                print("Sorry, you lost! You ran out of bullets, try again next time!")
+            print("Number of ships sunk:", num_of_ships_sunk)
+            accuracy_percentage = ((num_of_ships_sunk / (num_of_ships - num_of_ships_sunk)) * 100) if num_of_ships > 0 else 0
+            print("Accuracy Percentage: {:.2f}%".format(accuracy_percentage))
+            game_over = True
 
 if __name__ == "__main__":
     main()
