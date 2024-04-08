@@ -184,6 +184,18 @@ def main():
     grid = create_grid(grid_size, num_ships)
 
     game_over = False
+   
+    while not game_over:
+        print_grid(grid)
+        print("Number of ships remaining:", num_ships - num_ships_s)
+        print("Number of bullets left:", bullets_l)
+        bullets_l = shoot_bullet(grid, bullets_l)
+
+        result, num_ships_s, bullets_l = check_for_game_over(num_ships_s, num_ships, bullets_l)
+        if result:
+            print("Game Over!")
+            if result == "win":
+                print("Congrats you won!")
 
     if __name__ == "__main__":
         main()
