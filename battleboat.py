@@ -197,5 +197,5 @@ def main():
             if result == "win":
                 print("Congrats you won!")
 
-    if __name__ == "__main__":
-        main()
+if __name__ == "__main__":
+    main()
