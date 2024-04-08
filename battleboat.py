@@ -168,7 +168,7 @@ def calculate_accuracy_percentage(num_ships, num_ships_s):
     Calculate the accuracy percentage.
     """
     return ((num_ships_s / num_ships) * 100) if num_ships > 0 else 0
-    
+
 def main():
     """
     Main function to start the game.
