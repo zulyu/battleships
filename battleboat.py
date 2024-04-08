@@ -163,6 +163,12 @@ def check_for_game_over(num_ships_s, num_ships, bullets_l):
 
     return result, num_ships_s, bullets_l
 
+def calculate_accuracy_percentage(num_ships, num_ships_s):
+    """
+    Calculate the accuracy percentage.
+    """
+    return ((num_ships_s / num_ships) * 100) if num_ships > 0 else 0
+    
 def main():
     """
     Main function to start the game.
@@ -192,7 +198,7 @@ def main():
             else:
                 print("Sorry, you lost! You ran out of bullets, try again next time!")
             print("Number of ships sunk:", num_ships_s)
-            accuracy = ((num_ships_s / (num_ships - num_ships_s)) * 100) if num_ships > 0 else 0
+            accuracy = calculate_accuracy_percentage(num_ships, num_ships_s)
             print(f"Accuracy Percentage: {accuracy:.2f}%")
             game_over = True
 
