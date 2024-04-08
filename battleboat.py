@@ -184,7 +184,7 @@ def main():
     grid = create_grid(grid_size, num_ships)
 
     game_over = False
-   
+
     while not game_over:
         print_grid(grid)
         print("Number of ships remaining:", num_ships - num_ships_s)
