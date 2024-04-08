@@ -49,7 +49,7 @@ def place_ship(grid, ship_info):
 
     return validate_grid_place_ship(grid, start_row, end_row, start_col, end_col)
 
-def create_grid(grid_size, num_of_ships):
+def create_grid(grid_size, num_ships):
     """
     Create the grid and place ships randomly.
     """
@@ -57,14 +57,14 @@ def create_grid(grid_size, num_of_ships):
 
     grid = [["." for _ in range(grid_size)] for _ in range(grid_size)]
 
-    while num_of_ships > 0:
+    while num_ships > 0:
         random_row = random.randint(0, grid_size - 1)
         random_col = random.randint(0, grid_size - 1)
         direction = random.choice(["left", "right", "up", "down"])
         ship_size = random.randint(3, 5)
         ship_info = (random_row, random_col, direction, ship_size)  # Define ship_info
         if place_ship(grid, ship_info):  # Pass ship_info to place_ship
-            num_of_ships -= 1
+            num_ships -= 1
 
     return grid
 
@@ -151,12 +151,12 @@ def shoot_bullet(grid, bullets_l):
 
     return bullets_l
 
-def check_for_game_over(num_ships_s, num_of_ships, bullets_l):
+def check_for_game_over(num_ships_s, num_ships, bullets_l):
     """
     Check if the game is over.
     """
     result = None
-    if num_of_ships == num_ships_s:
+    if num_ships == num_ships_s:
         result = "win"
     elif bullets_l <= 0:
         result = "lose"
@@ -171,20 +171,20 @@ def main():
     print("You have 50 bullets to take down 8 ships, may the battle begin!")
 
     grid_size = 10
-    num_of_ships = 2
+    num_ships = 2
     bullets_l = 50
     num_ships_s = 0
 
-    grid = create_grid(grid_size, num_of_ships)
+    grid = create_grid(grid_size, num_ships)
 
     game_over = False
     while not game_over:
         print_grid(grid)
-        print("Number of ships remaining:", num_of_ships - num_ships_s)
+        print("Number of ships remaining:", num_ships - num_ships_s)
         print("Number of bullets left:", bullets_l)
         bullets_l = shoot_bullet(grid, bullets_l)
 
-        result, num_ships_s, bullets_l = check_for_game_over(num_ships_s, num_of_ships, bullets_l)
+        result, num_ships_s, bullets_l = check_for_game_over(num_ships_s, num_ships, bullets_l)
         if result:
             print("Game Over!")
             if result == "win":
@@ -192,7 +192,7 @@ def main():
             else:
                 print("Sorry, you lost! You ran out of bullets, try again next time!")
             print("Number of ships sunk:", num_ships_s)
-            accuracy = ((num_ships_s / (num_of_ships - num_ships_s)) * 100) if num_of_ships > 0 else 0
+            accuracy = ((num_ships_s / (num_ships - num_ships_s)) * 100) if num_ships > 0 else 0
             print("Accuracy Percentage: {:.2f}%".format(accuracy))
             game_over = True
 
