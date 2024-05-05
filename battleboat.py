@@ -174,11 +174,10 @@ def main():
     Main function to start the game.
     """
     print("-----Welcome to Battleships-----")
-    print("You have 50 bullets to take down 8 ships, may the battle begin!")
 
-    grid_size = 10
-    num_ships = 2
-    bullets_l = 50
+    grid_size = int(input("Enter grid size you want to use: "))
+    num_ships = int(input("Enter number of ships you want to use: "))
+    bullets_l = int(input("Enter number of bullets you want to use: "))
     num_ships_s = 0
 
     grid = create_grid(grid_size, num_ships)
