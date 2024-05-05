@@ -1,7 +1,3 @@
-"""
-This module implements the game logic for Battleboats.
-"""
-
 import random
 import time
 
@@ -94,10 +90,14 @@ def print_grid(grid):
         print(str(i), end=" ")
     print("")
 
-def accept_valid_bullet_placement(grid, alphabet):
+def accept_valid_bullet_placement(grid, alphabet, bullets_l):
     """
     Accept valid bullet placement.
     """
+    if bullets_l <= 0:
+        print("You have no bullets left.")
+        return -1, -1
+    
     is_valid_placement = False
     row = -1
     col = -1
@@ -133,7 +133,11 @@ def shoot_bullet(grid, bullets_l):
     """
     Shoot a bullet at a specified location.
     """
-    row, col = accept_valid_bullet_placement(grid, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    row, col = accept_valid_bullet_placement(grid, "ABCDEFGHIJKLMNOPQRSTUVWXYZ", bullets_l)
+    
+    if row == -1 or col == -1:
+        return bullets_l
+
     print("")
     print("----------------------------")
 
@@ -174,11 +178,37 @@ def main():
     Main function to start the game.
     """
     print("-----Welcome to Battleships-----")
-    print("You have 50 bullets to take down 8 ships, may the battle begin!")
 
-    grid_size = 10
-    num_ships = 2
-    bullets_l = 50
+    # Input loop for grid size
+    while True:
+        try:
+            grid_size = int(input("Enter grid size you want to use: "))
+            if grid_size <= 0:
+                raise ValueError("Grid size must be a positive integer.")
+            break
+        except ValueError as ve:
+            print("Error:", ve)
+    
+    # Input loop for number of ships
+    while True:
+        try:
+            num_ships = int(input("Enter number of ships you want to use: "))
+            if num_ships <= 0:
+                raise ValueError("Number of ships must be a positive integer.")
+            break
+        except ValueError as ve:
+            print("Error:", ve)
+
+    # Input loop for number of bullets
+    while True:
+        try:
+            bullets_l = int(input("Enter number of bullets you want to use: "))
+            if bullets_l <= 0:
+                raise ValueError("Number of bullets must be a positive integer.")
+            break
+        except ValueError as ve:
+            print("Error:", ve)
+
     num_ships_s = 0
 
     grid = create_grid(grid_size, num_ships)
@@ -196,6 +226,11 @@ def main():
             print("Game Over!")
             if result == "win":
                 print("Congrats you won!")
+            break  # Exit the game loop if the game is over
+
+        if bullets_l <= 0:
+            print("Out of bullets! Game Over!")
+            break  # Exit the game loop if out of bullets
 
 if __name__ == "__main__":
     main()
